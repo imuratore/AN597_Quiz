@@ -15,7 +15,7 @@ d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 
 library(dplyr)
 
-new_d <- mutate(d) %>% select(first_name, last_name) 
+new_d <- mutate(d) %>% select(first_name, last_name) %>% select(first_name, last_name) %>% filter(gender == "Female")
 
 new_d
 
