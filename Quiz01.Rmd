@@ -1,0 +1,26 @@
+---
+title: "Quiz01"
+author: "Isabella Muratore"
+date: "September 26, 2017"
+output: html_document
+---
+
+#I imported the csv using curl, then loaded dplyr so I could mutate it to contain only first names and last names
+
+```{r}
+library(curl)
+
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/zombies.csv")
+d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
+
+library(dplyr)
+
+new_d <- mutate(d) %>% select(first_name, last_name) 
+
+new_d
+
+
+
+```
+
+## modify to just contain first+last name of every female surviving zombie apoc
