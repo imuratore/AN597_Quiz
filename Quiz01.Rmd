@@ -27,6 +27,12 @@ tall_d <- filter(new_d, height <= 65)
 
 boxplot(zombies_killed ~ height, new_d)
 
+
+par(mfrow = c(1, 2))
+
+boxplot(short_d$zombies_killed)
+boxplot(tall_d$zombies_killed)
+
 par(mfrow = c(1, 2))
 
 barplot(short_d$zombies_killed)
