@@ -1,9 +1,11 @@
 ---
-title: "Quiz01"
+title: "Quiz02"
 author: "Isabella Muratore"
 date: "September 26, 2017"
 output: html_document
 ---
+
+#quiz 2d$
 
 #I imported the csv using curl, then loaded dplyr so I could mutate it to contain only first names and last names
 
@@ -15,11 +17,20 @@ d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
 
 library(dplyr)
 
-new_d <- mutate(d) %>% select(first_name, last_name) %>% select(first_name, last_name) %>% filter(gender == "Female")
+new_d <- filter(d, gender == "Female") %>% select(first_name, last_name, height, weight, zombies_killed)
 
 new_d
 
+short_d <- filter(new_d, height < 65)
+  
+tall_d <- filter(new_d, height <= 65)
 
+boxplot(zombies_killed ~ height, new_d)
+
+par(mfrow = c(1, 2))
+
+barplot(short_d$zombies_killed)
+barplot(tall_d$zombies_killed)
 
 ```
 
