@@ -18,9 +18,9 @@ n <- mutate(d) %>% filter(major=="medicine/nursing")
 plot(data = n, age ~ years_of_education)
 
 
-g <- ggplot(data = n, aes(x = years_of_education, y = age, color = factor(gender)))
-g <- g + geom_point()
+g <- ggplot(data = n, aes(x = years_of_education, y = age))
 g <- g + geom_smooth(method = "lm", formula = y ~ x)
+g <- g + geom_point(aes(x = years_of_education, y = age, color = factor(gender)))
 g
 
 ```
